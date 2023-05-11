@@ -1,0 +1,210 @@
+*, ::before, ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #F1F1F1;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: .5s background ease-in-out;
+    -moz-transition: .5s background ease-in-out;
+    -webkit-transition: .5s background ease-in-out;
+    -o-transition: .5s background ease-in-out;
+}
+body.light{
+    --main-color: #F1F1F1;
+    --secondary-color: #0d1117;
+    --card-background: #F1F1F1;
+    --font-color: #0d1117;
+    background: var(--main-color);
+}
+body.dark{
+    --main-color: #0d1117;
+    --secondary-color: #F1F1F1;
+    --card-background: #292b2f;
+    --font-color: #F1F1F1;
+    background: var(--main-color);
+}
+
+header{
+    background: #0d1117;
+    border-bottom: 2px solid #F1F1F1;
+    height: 70px;
+    padding: 10px;
+}
+header .header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left{
+    background: transparent;
+}
+.logo-link{
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+.logo-link svg{
+    height: 100%;
+    fill: white;
+}
+.right{
+    background: transparent;
+}
+.theme-toggle{
+    position: relative;
+    width: 65px;
+    height: 30px;
+    border: 2px solid #F1F1F1;
+    border-radius: 15px;
+    transition: .5s background ease-in-out;
+}
+.theme-toggle.light{
+    background: rgb(164, 229, 255);
+}
+.token{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transform: translate(-50%, 50%);
+    left: 0;
+    bottom: 50%;
+    transition: .3s left;
+    -moz-transition: .3s left;
+    -webkit-transition: .3s left;
+    -o-transition: .3s left;
+}
+.dark .token{
+    background: #F1F1F1;
+    left: 12.5px;
+    bottom: 50%;
+    border: 1px solid #0d1117;
+}
+.dark .token::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #0d1117;
+    left: 40%;
+    border-radius: 50%;
+}
+
+.light .token{
+    background: #ddb400;
+    box-shadow: 0 0 15px #ddb400;
+    bottom: 50%;
+    left: calc(100% - 12.5px);
+    z-index: 3;
+}
+h1{
+    font-size: 35px;
+    color: var(--secondary-color);
+    text-align: center;
+    margin: 40px 0 50px 0;
+}
+
+form, .affichage{
+    margin: 0 auto;
+    width: 50%;
+    max-width: 800px;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+}
+form small{
+    color: var(--font-color);
+}
+input{
+    display: block;
+    width: 300px;
+    height: 45px;
+    padding: 10px;
+    font-size: 18px;
+    border: 0;
+    border-radius: 7.5px;
+    box-shadow: 0px 3px 10px rgba(13, 17, 23, 0.1);
+}
+button{
+    width: 300px;
+    height: 35px;
+    padding: 5px;
+    border: 0;
+    border-radius: 5px;
+    font-size: 15px;
+    color: white;
+    background: linear-gradient(60deg, rgb(0, 105, 0), rgb(0, 136, 0));
+}
+.affichage{
+    display: flex;
+    justify-content: center;
+}
+.carte{
+    width: 500px;
+    height: auto;
+    position: relative;
+    margin-top: 100px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    background: var(--card-background);
+    color: var(--font-color);
+    box-shadow: 0px 3px 10px rgba(13, 17, 23, 0.1);
+}
+.avatar{
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+h2{
+    margin-top: 100px;
+    text-align: center;
+    font-size: 25px;
+}
+.compte-infos{
+    border-top: 1px dashed var(--font-color);
+    margin-top: 20px;
+    list-style-type: none;
+}
+li{
+    padding: 10px 20px;
+    text-align: justify;
+}
+li:nth-child(1) {
+    margin-top: 15px;
+}
+.reseaux{
+    padding: 10px 20px;
+}
+.reseaux img{
+    height: 30px;
+}
+.error{
+    color: var(--font-color);
+    text-align: center;
+}
+
+@media (max-width: 570px) {
+    main{
+        width: 100%;
+    }
+    form{
+        width: 100%;
+    }
+    input, button{
+        width: 80%;
+    }
+    .carte{
+        width: 100%;
+    }
+}
